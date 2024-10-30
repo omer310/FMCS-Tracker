@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبادرة دعم الطلاب</title>
+    <style>
+        @font-face {
+            font-family: 'FFShamelFamily';
+            src: url('Assets/Font/ArbFONTS-FFShamelFamily-SansOneBold.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'FFShamelFamily', Arial, sans-serif !important;
+        }
+
+        body {
+            background: linear-gradient(180deg, #e8f5e9 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 750px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Header Section */
+        .header {
+            text-align: right;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 85px;
+            height: auto;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.3;
+        }
+
+                /* Red Section */
+        .red-section {
+            background-color: #E74C3C;
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .number-text-container {
+            display: flex;
+            align-items: left;
+            gap: 10px;
+        }
+
+        .number {
+            font-size: 130px; /* Adjust based on design */
+            line-height: 1;
+            font-weight: bold;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .text-line {
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+        .text-line1{
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+        .text-line2{
+            font-size: 42px;
+            line-height: 1.2;
+            
+
+        }
+
+        .exam-text {
+            font-size: 32px;
+            position: relative;
+            padding-left: 35px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .graduation-hat {
+            position: absolute;
+            width: 30px;
+            height: auto;
+            left: -35px;
+            bottom: -5px;
+        }
+
+
+        /* Amount Section */
+        .amount-section {
+            background-color: #B4E6DD;
+            padding: 20px 25px;
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+
+        .student-image {
+            position: absolute;
+            left: -20px;
+            bottom: 0;
+            width: 350px;
+            height: 290px;
+            z-index: 1;
+        }
+
+        .amount-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: right;
+            margin-right: 0;
+            padding-right: 0;
+        }
+
+        .total-label {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .amount {
+            font-size: 55px;
+            direction: ltr;
+            text-align: right;
+            width: 70%;
+            margin: -25px 0;
+            font-weight: bold;
+        }
+
+        .currency {
+            font-size: 20px;
+            margin-top: 2px;
+            margin-bottom: 8px;
+            color: #000;
+            text-align: left;
+            direction: ltr;
+            width: 45%;
+        }
+
+        .includes {
+            font-size: 23px;
+            color: #333;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background-color: #68B984;
+            padding: 12px 20px;
+        }
+
+        .collected {
+            color: white;
+            text-align: right;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .progress-container {
+            margin: 8px 0 4px;
+        }
+
+        .progress-bar {
+            background-color: rgba(255, 255, 255, 0.3);
+            height: 15px;
+            border-radius: 8px;
+            margin: 8px 0;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            direction: ltr;
+        }
+
+        .progress {
+            width: 8.8%;
+            height: 100%;
+            background: linear-gradient(90deg, #2E7D32 0%, #43A047 100%);
+            border-radius: 8px;
+            transition: width 0.5s ease-in-out;
+            box-shadow: 0 0 10px rgba(46, 125, 50, 0.5);
+            position: relative;
+            float: left;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(255,255,255,0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255,255,255,0.2) 50%,
+                rgba(255,255,255,0.2) 75%,
+                transparent 75%
+            );
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 14px;
+            margin-top: 4px;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            direction: ltr;
+        }
+
+        /* Donation Section */
+        .donation-section {
+            background-color: #B8C5E0;
+            padding: 20px 25px;
+        }
+
+        .donate-title {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .donate-text {
+            color: #2196F3;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 2px solid #2196F3;
+            padding-bottom: 2px;
+        }
+
+        .arrow-img {
+            width: 35px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .bank-accounts {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bank-account {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+        }
+
+        .bank-logo {
+            width: 90px;
+            height: auto;
+        }
+
+        .account-details {
+            flex: 1;
+            text-align: right;
+        }
+
+        .account-number {
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .account-name {
+            font-size: 15px;
+            color: #444;
+        }
+
+        .note {
+            font-size: 14px;
+            color: #444;
+            text-align: right;
+            margin-top: 15px;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
+
+        .contact {
+            text-align: center;
+            direction: ltr;
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="Assets/FMCS Logo.png" alt="شعار الكلية" class="logo">
+            <div class="header-text">
+                <div class="title">مبادرة طلاب كلية العلوم الرياضية والحاسوب</div>
+                <div class="subtitle">لدعم طلاب الدفعة 40 المعسرين</div>
+            </div>
+        </div>
+
+        <div class="red-section">
+            <div class="content-wrapper">
+                <div class="number-text-container">
+                    <span class="number">75</span>
+                    <div class="text-container">
+                        <span class="text-line">ساهم</span>
+                        <span class="text-line1">في دعم</span>
+                        <span class="text-line2">طالب وطالبة</span>
+                    </div>
+                </div>
+                <div class="exam-text">
+                    <span>لإتمام امتحاناتهم النهائية</span>
+                    <img src="Assets/hat.png" alt="" class="graduation-hat">
+                </div>
+            </div>
+        </div>
+
+        <div class="amount-section">
+            <img src="Assets/Man.png" alt="" class="student-image">
+            <div class="amount-content">
+                <div class="total-label">إجمالي المبلغ</div>
+                <div class="amount">17,000,000</div>
+                <div class="currency">جنيه سوداني</div>
+                <div class="includes">تشمل رسوم الامتحانات 
+                    <br>
+                    الخاصة بالجامعة وتكاليف 
+                    <br>
+                    السفر والسكن</div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="collected">تم جمع: <span class="current-amount">1,500</span> جنيه</div>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>0%</span>
+                    <span class="percentage">8.8%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="donation-section">
+            <div class="donate-title">
+                <img src="Assets/arrow.png" alt="" class="arrow-img">
+                <span class="donate-text">ساهم الآن!</span>
+            </div>
+            <div class="bank-accounts">
+                <div class="bank-account">
+                    <img src="Assets/بنكك.png" alt="بنك" class="bank-logo">
+                    <div class="account-details">
+                        <div class="account-number">بنك: 0000000</div>
+                        <div class="account-name">فلان بن فلان الفلاني</div>
+                    </div>
+                </div>
+                <div class="bank-account">
+                    <img src="Assets/فوري.png" alt="فوري" class="bank-logo">
+                    <div class="account-details">
+                        <div class="account-number">فوري: 0000000</div>
+                        <div class="account-name">فلانة بنت فلان الفلاني</div>
+                    </div>
+                </div>
+            </div>
+            <div class="note">
+                للحوالات من خارج السودان، يرجى التواصل.
+                <br>
+                ملاحظة: المبلغ المطلوب هو الحد الأدنى قد يزيد حسب عدد الطلاب أو تكلفة المواصلات والسكن
+            </div>
+            <div class="contact">‎+249 96 486 0377 :للتواصل أو الاستفسار</div>
+        </div>
+    </div>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
